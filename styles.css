@@ -1,0 +1,189 @@
+/* Base Frutiger Aero */
+:root {
+    --aero-blue: #7ECEF4;
+    --cyber-green: #00FF9D;
+    --gloss-white: rgba(255, 255, 255, 0.9);
+    --deep-aqua: #006D77;
+}
+
+/* Animação de bolhas */
+@keyframes bubble-float {
+    0% { transform: translateY(0) scale(0.95); }
+    50% { transform: translateY(-20px) scale(1.05); }
+    100% { transform: translateY(0) scale(0.95); }
+}
+
+/* Efeito água dinâmico */
+.water-effect {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--aero-blue) 20%, transparent 60%);
+    opacity: 0.1;
+    animation: water-flow 15s infinite linear;
+}
+
+/* Header com gradiente complexo */
+.fruiter-header {
+    background: linear-gradient(135deg,
+        var(--deep-aqua) 0%,
+        var(--aero-blue) 30%,
+        #83C5BE 70%,
+        #EDF6F9 100%
+    );
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 1rem;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+/* Título com efeito de neon */
+.glowing-title {
+    font-size: 4rem;
+    text-shadow: 0 0 15px var(--cyber-green),
+                 0 0 30px rgba(0, 255, 157, 0.5),
+                 0 0 45px rgba(0, 255, 157, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.glowing-title:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Cards com efeito de vidro */
+.feature-card {
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de brilho ao passar o mouse */
+.hover-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 75%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.feature-card:hover .hover-shine {
+    opacity: 1;
+    animation: shine-flow 2s linear;
+}
+
+/* Grid responsivo */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.aero-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aero-box:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.03);
+}
+
+/* Efeito holográfico */
+.hologram-effect {
+    position: relative;
+    background: linear-gradient(45deg,
+        var(--aero-blue),
+        var(--cyber-green),
+        var(--deep-aqua)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hologram 5s infinite linear;
+}
+
+@keyframes hologram {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Botões interativos */
+.btn-aero {
+    background: linear-gradient(145deg, var(--aero-blue), var(--deep-aqua));
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-aero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+}
+
+.btn-aero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.btn-aero:hover::after {
+    left: 150%;
+}
+
+/* Footer animado */
+.aero-footer {
+    background: var(--deep-aqua);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    margin-top: 4rem;
+}
+
+.footer-bubbles .bubble {
+    width: 20px;
+    height: 20px;
+    background: var(--aero-blue);
+    border-radius: 50%;
+    position: absolute;
+    animation: bubble-float 3s infinite ease-in-out;
+}
